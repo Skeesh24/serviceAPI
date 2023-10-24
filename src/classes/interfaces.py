@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Union
 
 class IRepository(ABC):
     @abstractmethod
-    def get(self, **kwargs) -> Union[List[Dict], Dict]:
+    def get(self, **kwargs) -> List[Dict]:
         """
         Returns a list of querying objects.
         kwargs: if provided limit=1 return the first element
