@@ -6,19 +6,14 @@ from classes.helper import convert_to_service
 from classes.interfaces import IRepository
 from settings import env
 
+
 class ServiceRepository(IRepository):
     def __init__(self, collection: Collection) -> None:
         self.db = collection
 
-    def get(self, **kwargs) -> Union[List[Dict], Dict]:
-        limit = kwargs.pop(env.PARAM_LIMIT, None)
-
-        if limit and limit == 1:
-            filter = kwargs
-            doc = self.db.find_one(filter)
-            return convert_to_service(doc)
-
-        cursor = self.db.find(kwargs)
+    def get(self, **kwargs) -> List[Dict]:
+        filter = kwargs
+        cursor = self.db.find(filter)
         return [convert_to_service(doc) for doc in cursor]
 
     def add(self, element: dict) -> str:

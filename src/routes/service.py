@@ -16,10 +16,10 @@ async def get_service_list(db: IRepository = Depends(get_services)):
     return db.get()
 
 
-@service_router.get("/{name}", response_model=service_model)
+@service_router.get("/{name}", response_model=List[service_model])
 async def get_service_by_name(name: str, db: IRepository = Depends(get_services)):
     try:
-        service = db.get(limit=1, service=name)
+        service = db.get(service=name)
     except:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail=env.MSG_NOT_FOUND_ERROR)
     return service
