@@ -1,0 +1,17 @@
+[
+  {
+    "service": "cassandra",
+    "status": "enabled",
+    "description": "some words about"
+  },
+  {
+    "service": "redis",
+    "status": "unstable",
+    "description": "some words about"
+  },
+  {
+    "service": "rabbitmq",
+    "status": "disabled",
+    "description": "some words about"
+  }
+]
