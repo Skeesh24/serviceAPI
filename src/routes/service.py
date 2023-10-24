@@ -45,7 +45,7 @@ async def create_service(content=Body(), db: IRepository = Depends(get_services)
         raise HTTPException(status.HTTP_400_BAD_REQUEST, detail=env.MSG_INVALID_STATUS)
 
     try:
-        service.update({"id": db.add(element=service)})
+        service.update({env.PARAM_ID: db.add(element=service)})
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
