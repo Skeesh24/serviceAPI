@@ -88,7 +88,7 @@ Content-Type: application/json
 }
 ```
 
-### POST /service/{name}?start=...&end=...
+### GET /service/{name}?start=...&end=...
 
 This route returns the service statistic by provided name and time interval.
 If the start and end parameters are not specified then used a default 12 hour time interval
