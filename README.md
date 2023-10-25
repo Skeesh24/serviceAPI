@@ -64,17 +64,6 @@ Example:
 GET http://localhost:8888/service
 ```
 
-### GET /service/{name}?start=...&end=...
-
-This route returns the service statistic by provided name and time interval.
-If the start and end parameters are not specified then used a default 12 hour time interval
-
-Example:
-
-```bash
-GET http://localhost:8888/service/redis?start=2023-10-26T16:55:46.838+00:00&end=2023-10-26T04:55:46.838+00:00
-```
-
 ### POST /services
 
 This route adds a new service to the database. You can use the test-dump.json file to quickly fill the body of your POST request.
@@ -90,6 +79,27 @@ Content-Type: application/json
     "status": "enabled",
     "description": "A new service"
 }
+```
+
+### GET /service/{name}?start=...&end=...
+
+This route returns the service statistic by provided name and time interval.
+If the start and end parameters are not specified then used a default 12 hour time interval
+
+Example:
+
+```bash
+GET http://localhost:8888/service/redis?start=2023-10-26T16:55:46.838+00:00&end=2023-10-26T04:55:46.838+00:00
+```
+
+### GET /service/log/{name}
+
+This route returns the service history changes and all the data by provided name. 
+
+Example:
+
+```bash
+GET http://localhost:8888/service/log/redis
 ```
 
 ## Python Best Practices
