@@ -102,7 +102,7 @@ async def create_service(
     service = {}
 
     try:
-        service = service_model.create_as_dict(**content)
+        service = service_model.create_as_dict(**content.model_dump())
     except:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
