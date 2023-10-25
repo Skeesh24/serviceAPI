@@ -29,6 +29,7 @@ class ServiceRepository(IRepository):
     #     )
     #     return old_element
 
-    # def remove(self, **kwargs) -> int:
-    #     result = self.db.delete_one(kwargs)
-    #     return result.deleted_count
+    def remove(self, **kwargs) -> int:
+        filter = kwargs
+        result = self.db.delete_many(filter)
+        return result.deleted_count
