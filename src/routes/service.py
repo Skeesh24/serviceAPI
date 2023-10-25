@@ -19,7 +19,7 @@ service_router = APIRouter(prefix="/service", tags=["service"])
 
 
 @service_router.get("/", response_model=List[service_model])
-async def get_services_list(db: IRepository = Depends(get_services)):
+async def get_services_state_list(db: IRepository = Depends(get_services)):
     return db.get()
 
 
@@ -96,7 +96,7 @@ async def get_service_log(name: str, db: IRepository = Depends(get_services)):
 @service_router.post(
     "/", status_code=status.HTTP_201_CREATED, response_model=service_model
 )
-async def create_service(
+async def create_service_state(
     content: service_create = Body(), db: IRepository = Depends(get_services)
 ):
     service = {}
@@ -123,3 +123,11 @@ async def create_service(
         )
 
     return service
+
+
+@service_router.delete("/{name}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_state(name: str, db: IRepository = Depends(get_services)):
+    try:
+        db.remove(service=name)
+    except:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail=env.MSG_NOT_FOUND)
