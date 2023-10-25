@@ -7,6 +7,7 @@ from classes.dependencies import get_services, get_statistic_service
 from classes.enums import Status
 from classes.interfaces import IRepository, IStatisticService
 from classes.validation import (
+    service_create,
     service_model,
     service_statistic,
     service_status,
@@ -95,7 +96,9 @@ async def get_service_log(name: str, db: IRepository = Depends(get_services)):
 @service_router.post(
     "/", status_code=status.HTTP_201_CREATED, response_model=service_model
 )
-async def create_service(content=Body(), db: IRepository = Depends(get_services)):
+async def create_service(
+    content: service_create = Body(), db: IRepository = Depends(get_services)
+):
     service = {}
 
     try:
