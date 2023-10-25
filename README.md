@@ -117,6 +117,7 @@ Example:
 
 ```bash
 DELETE http://localhost:8888/service/redis
+```
 
 ## Python Best Practices
 
@@ -136,4 +137,3 @@ DELETE http://localhost:8888/service/redis
 
 There is also an .env file in the repository.
 Since creating a new MongoDB cluster is time consuming, I decided to leave the environment file ready.
-```
