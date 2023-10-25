@@ -1,7 +1,7 @@
 # Service API
 
 Completed task for the vacancy.
-https://tyumen.hh.ru/vacancy/88451637?from=favorite_vacancy_list&hhtmFrom=favorite_vacancy_list
+https://tyumen.hh.ru/vacancy/88451637
 
 ## Table of Contents:
 
