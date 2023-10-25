@@ -32,13 +32,13 @@ class IRepository(ABC):
     #     """
     #     pass
 
-    # @abstractmethod
-    # def remove(self, **kwargs) -> int:
-    #     """
-    #     Returns the count of deleted elements
-    #     kwargs: parameters used to filter by the special fields
-    #     """
-    #     pass
+    @abstractmethod
+    def remove(self, **kwargs) -> int:
+        """
+        Returns the count of deleted elements
+        kwargs: parameters used to filter by the special fields
+        """
+        pass
 
 
 class IStatisticService(ABC):
