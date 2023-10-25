@@ -2,26 +2,26 @@
   {
       "service": "redis",
       "status": "enabled",
-      "description": "some words about",
+      "description": "some words about"
   },
   {
       "service": "redis",
       "status": "disabled",
-      "description": "some words about",
+      "description": "some words about"
   },
   {
       "service": "redis",
       "status": "enabled",
-      "description": "some words about",
+      "description": "some words about"
   },
   {
       "service": "redis",
       "status": "unstable",
-      "description": "some words about",
+      "description": "some words about"
   },
   {
       "service": "redis",
       "status": "disabled",
-      "description": "some words about",
+      "description": "some words about"
   }
 ]
