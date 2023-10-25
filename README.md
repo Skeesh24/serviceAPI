@@ -51,7 +51,7 @@ python3 src/main.py
 ## Installation v.2
 You can use Docker to simply startup application.
 ```bash
-docker run -p 8888:8888 serviceapi:1.1
+docker run -p 8888:8888 skeesh/serviceapi:1.1
 ```
 
 ## API Endpoints
