@@ -16,7 +16,7 @@ https://tyumen.hh.ru/vacancy/88451637
 
 ## Introduction
 
-I implemented the API of a server that keeps track of services and their states in this task.
+I implemented the API of a server that keeps track of services and their states in this task. There are three types of state in this API: enabled, disabled, unstable.
 
 ## Features
 
@@ -49,7 +49,9 @@ python3 src/main.py
 ```
 
 ## Installation v.2
+
 You can use Docker to simply startup application.
+
 ```bash
 docker run -p 8888:8888 skeesh/serviceapi:1.1
 ```
@@ -71,6 +73,7 @@ GET http://localhost:8888/service
 ### POST /service
 
 This route adds a new service to the database. You can use the test-dump.json file to quickly fill the body of your POST request.
+You should provide one of these states in the status field: enabled, disabled, unstable.
 
 Example:
 
@@ -85,7 +88,7 @@ Content-Type: application/json
 }
 ```
 
-### GET /service/{name}?start=...&end=...
+### POST /service/{name}?start=...&end=...
 
 This route returns the service statistic by provided name and time interval.
 If the start and end parameters are not specified then used a default 12 hour time interval
@@ -98,13 +101,22 @@ GET http://localhost:8888/service/redis?start=2023-10-26T16:55:46.838+00:00&end=
 
 ### GET /service/log/{name}
 
-This route returns the service history changes and all the data by provided name. 
+This route returns the service history changes and all the data by provided name.
 
 Example:
 
 ```bash
 GET http://localhost:8888/service/log/redis
 ```
+
+### DELETE /service/{name}
+
+This route returns the 204 NO_CONTENT if the specified service name was founded and deleted successfully.
+
+Example:
+
+```bash
+DELETE http://localhost:8888/service/redis
 
 ## Python Best Practices
 
@@ -124,3 +136,4 @@ GET http://localhost:8888/service/log/redis
 
 There is also an .env file in the repository.
 Since creating a new MongoDB cluster is time consuming, I decided to leave the environment file ready.
+```
