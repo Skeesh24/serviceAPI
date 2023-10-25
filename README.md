@@ -12,6 +12,7 @@ https://hh.ru/
     5. API Endpoints
     6. Python Best Practices
     7. API Best Practices
+    8. Warning
 
 ## Introduction
 
@@ -23,6 +24,7 @@ In this task, I implemented the API of a server that keeps track of services and
     2. Dependency Injection to ensure low code cohesion
     3. MongoDB as a database
     4. Validation models for data integrity in non-relational mongo
+    5. SLA metrics: [Uptime = (Total Time - Disabletime - Unstabletime) / Total Time * 100] and [Availability = (Total Time - Disabletime) / Total Time * 100]
 
 ## Installation
 
