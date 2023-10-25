@@ -40,7 +40,7 @@ class StatisticService:
                 return timedelta()
             return later - early
 
-        def element_at(l: list, index: int) -> bool:
+        def exist_at(l: list, index: int) -> bool:
             try:
                 return bool(l[index])
             except IndexError:
@@ -49,10 +49,10 @@ class StatisticService:
         for i in range(len(elems)):
             if elems[i].status != status.value:
                 continue
-            if i == 0 and (not element_at(elems, i + 1)) or i == len(elems) - 1:
+            if i == 0 and (not exist_at(elems, i + 1)) or i == len(elems) - 1:
                 times.append(calc_difference(elems[i].date_time, datetime.now()))
                 continue
-            if i == 0 and element_at(elems, i + 1) or i < len(elems) - 1:
+            if i == 0 and exist_at(elems, i + 1) or i < len(elems) - 1:
                 times.append(
                     calc_difference(elems[i].date_time, elems[i + 1].date_time)
                 )
