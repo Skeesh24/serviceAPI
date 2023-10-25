@@ -1,13 +1,16 @@
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Union
+from datetime import datetime, timedelta
+from typing import Any, Dict, List, Tuple, Union
+
+from classes.enums import Status
+from classes.validation import sla_object
 
 
 class IRepository(ABC):
     @abstractmethod
-    def get(self, **kwargs) -> List[Dict]:
+    def get(self, **kwargs) -> List[Any]:
         """
         Returns a list of querying objects.
-        kwargs: if provided limit=1 return the first element
         kwargs: other parameters used to filter by the specified fields
         """
         pass
@@ -36,3 +39,26 @@ class IRepository(ABC):
     #     kwargs: parameters used to filter by the special fields
     #     """
     #     pass
+
+
+class IStatisticService(ABC):
+    @abstractmethod
+    def set_collection(self, collection: list) -> None:
+        pass
+
+    @abstractmethod
+    def set_interval(self, start: datetime, end: datetime) -> None:
+        pass
+
+    @abstractmethod
+    def summary_time_by_status(self, status: Status) -> float:
+        pass
+
+    @abstractmethod
+    def sla_calculate(
+        self,
+        total_time: float,
+        disable_time: float,
+        unstable_time: float,
+    ) -> Tuple[float, float]:
+        pass
