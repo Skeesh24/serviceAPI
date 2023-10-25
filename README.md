@@ -35,7 +35,7 @@ git clone https://github.com/skeesh24/serviceAPI.git
 
 cd serviceAPI
 
-python -m venv venv
+python3 -m venv venv
 
 venv\Scripts\activate  # On Linux: source venv/bin/activate
 
