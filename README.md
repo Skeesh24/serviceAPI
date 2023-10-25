@@ -7,8 +7,8 @@ https://tyumen.hh.ru/vacancy/88451637
 
     1. Introduction
     2. Features
-    3. Installation
-    4. Usage
+    3. Installation v.1
+    4. Installation v.2
     5. API Endpoints
     6. Python Best Practices
     7. API Best Practices
@@ -26,7 +26,7 @@ I implemented the API of a server that keeps track of services and their states 
     4. Validation models for data integrity in non-relational mongo
     5. SLA metrics: [Uptime = (Total Time - Disabletime - Unstabletime) / Total Time * 100] and [Availability = (Total Time - Disabletime) / Total Time * 100]
 
-## Installation
+## Installation v.1
 
 List of steps required to set up and run project.
 
@@ -42,12 +42,16 @@ venv\Scripts\activate  # On Linux: source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Usage
-
 Next, you should start the server.
 
 ```bash
 python3 src/main.py
+```
+
+## Installation v.2
+You can use Docker to simply startup application.
+```bash
+docker run -p 8888:8888 serviceapi:1.1
 ```
 
 ## API Endpoints
@@ -64,7 +68,7 @@ Example:
 GET http://localhost:8888/service
 ```
 
-### POST /services
+### POST /service
 
 This route adds a new service to the database. You can use the test-dump.json file to quickly fill the body of your POST request.
 
