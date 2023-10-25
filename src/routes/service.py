@@ -41,8 +41,11 @@ async def get_service_statistics(
     try:
         # получаем все сервисы по имени
         services = db.get(service=name)
+        if len(services) == 0:
+            raise
     except:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail=env.MSG_NOT_FOUND_ERROR)
+
     # конфигурируем сервис статистики
     statistic_service.set_collection(services)
     statistic_service.set_interval(start, end)
