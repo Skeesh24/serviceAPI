@@ -48,3 +48,9 @@ class service_status(BaseModel):
     service: str
     interval: Tuple[datetime, datetime]
     statistic: service_statistic
+
+
+class service_create(BaseModel):
+    service: str
+    status: str
+    description: str = ""
